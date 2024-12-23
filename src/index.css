@@ -9,3 +9,18 @@
 html {
   scroll-behavior: smooth;
 }
+
+.active {
+  position: relative;
+}
+
+.active::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: -20%;
+}
