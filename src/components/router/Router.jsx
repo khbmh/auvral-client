@@ -8,6 +8,9 @@ import AllArtifacts from '../pages/AllArtifacts';
 import SingleArt from '../pages/SingleArt';
 import MyLoved from '../pages/MyLoved';
 import Myadded from '../pages/Myadded';
+import PrivateRoutes from '../secureRoutes/PrivateRoutes';
+import PublicRoutes from '../secureRoutes/PublicRoutes';
+import AddArt from '../pages/AddArt';
 
 const Router = createBrowserRouter([
   {
@@ -16,17 +19,54 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <Home /> },
+      {
+        path: '/add-artifacts',
+        element: (
+          <PrivateRoutes>
+            <AddArt />
+          </PrivateRoutes>
+        ),
+      },
       { path: '/all-artifacts', element: <AllArtifacts /> },
-      { path: '/single-artifact', element: <SingleArt/> },
-      { path: '/my-added-artifacts', element: <Myadded/> },
-      { path: '/my-loved-artifacts', element: <MyLoved/> },
+      {
+        path: '/single-artifact',
+        element: (
+          <PrivateRoutes>
+            <SingleArt />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: '/my-added-artifacts',
+        element: (
+          <PrivateRoutes>
+            <Myadded />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: '/my-loved-artifacts',
+        element: (
+          <PrivateRoutes>
+            <MyLoved />
+          </PrivateRoutes>
+        ),
+      },
       {
         path: '/register',
-        element: <Register />,
+        element: (
+          <PublicRoutes>
+            <Register />
+          </PublicRoutes>
+        ),
       },
       {
         path: '/login',
-        element: <Login />,
+        element: (
+          <PublicRoutes>
+            <Login />
+          </PublicRoutes>
+        ),
       },
     ],
   },
