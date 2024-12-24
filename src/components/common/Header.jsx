@@ -7,6 +7,8 @@ function Header() {
   // console.log(user.photoURL);
   // console.log(user);
   const [isHovered, setIsHovered] = useState(false);
+  const [isPhotoHovered, setIsPhotoHovered] = useState(false);
+  const [isPhotoClicked, setIsPhotoClicked] = useState(false);
   const menu = (
     <ul className="flex flex-col lg:flex-row gap-3 lg:gap-6">
       <NavLink to="/">Home</NavLink>
@@ -121,13 +123,21 @@ function Header() {
                   userLoading && 'invisible'
                 } items-center space-x-3 flex ml-2`}
               >
-                <div className="relative mx-3 px-3">
+                <div
+                  onMouseEnter={() => setIsPhotoHovered(true)} // when mouse enters, set isHovered to true
+                  onMouseLeave={() => setIsPhotoHovered(false)} // when mouse leaves, set isHovered to false
+                  className="relative mx-3 px-3"
+                >
                   <img
                     src={user.photoURL}
                     alt={user.displayName}
-                    className="w-10"
+                    className="w-10 rounded-xl"
                   />
-                  <div className="absolute w-[300px] -ml-[60px] py-2">
+                  <div
+                    className={`absolute w-[300px] -ml-[60px] py-2 ${
+                      isPhotoHovered ? 'flex-col' : 'hidden'
+                    }`}
+                  >
                     <p className="mx-2 font-semibold text-md lg:text-xl flex">
                       {user.displayName}
                     </p>
