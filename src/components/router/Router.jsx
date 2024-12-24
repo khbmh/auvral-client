@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter } from 'react-router-dom'; // Ensure you import from 'react-router-dom'
 import MainLayout from '../mainLayout/MainLayout';
 import ErrorPage from '../pages/ErrorPage';
 import Login from '../pages/Login';
@@ -7,7 +7,7 @@ import Home from '../pages/Home';
 import AllArtifacts from '../pages/AllArtifacts';
 import SingleArt from '../pages/SingleArt';
 import MyLoved from '../pages/MyLoved';
-import Myadded from '../pages/Myadded';
+import MyAdded from '../pages/MyAdded';
 import PrivateRoutes from '../secureRoutes/PrivateRoutes';
 import PublicRoutes from '../secureRoutes/PublicRoutes';
 import AddArt from '../pages/AddArt';
@@ -29,7 +29,7 @@ const Router = createBrowserRouter([
       },
       { path: '/all-artifacts', element: <AllArtifacts /> },
       {
-        path: '/single-artifact',
+        path: '/artifact/:id', // Use :id instead of :url
         element: (
           <PrivateRoutes>
             <SingleArt />
@@ -40,7 +40,7 @@ const Router = createBrowserRouter([
         path: '/my-added-artifacts',
         element: (
           <PrivateRoutes>
-            <Myadded />
+            <MyAdded />
           </PrivateRoutes>
         ),
       },

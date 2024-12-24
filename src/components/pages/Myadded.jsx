@@ -1,8 +1,8 @@
 
-function Myadded() {
+function MyAdded() {
   return (
     <div>Myadded</div>
   )
 }
 
-export default Myadded
+export default MyAdded

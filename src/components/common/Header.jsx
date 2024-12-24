@@ -4,11 +4,9 @@ import { AuthContext } from '../contexts/AuthContext';
 
 function Header() {
   const { user, logOut, userLoading } = useContext(AuthContext);
-  // console.log(user.photoURL);
-  // console.log(user);
+
   const [isHovered, setIsHovered] = useState(false);
   const [isPhotoHovered, setIsPhotoHovered] = useState(false);
-  const [isPhotoClicked, setIsPhotoClicked] = useState(false);
   const menu = (
     <ul className="flex flex-col lg:flex-row gap-3 lg:gap-6">
       <NavLink to="/">Home</NavLink>
@@ -21,20 +19,19 @@ function Header() {
       >
         <p className="cursor-pointer">My Profile</p>
         <ul
-          className={`lg:absolute w-[170px] ${
+          className={`lg:absolute w-[170px] ml-4 ${
             isHovered ? 'lg:flex' : 'lg:hidden'
-          } flex-col py-2`}
+          } flex-col py-2 space-y-3`}
         >
-          <li>
-            <NavLink to="/my-loved-artifacts">My Loved Profile</NavLink>
-          </li>
-          <li>
-            <NavLink to="/my-added-artifacts">My Added artifacts</NavLink>
-          </li>
+          <NavLink className="w-fit" to="/my-loved-artifacts">
+            My Loved Profile
+          </NavLink>
+
+          <NavLink className="w-fit" to="/my-added-artifacts">
+            My Added artifacts
+          </NavLink>
         </ul>
       </div>
-      {/* <NavLink to="/my-added-artifacts">My Added artifacts</NavLink> */}
-      {/* <NavLink to="/my-loved-artifacts">My Loved Profile</NavLink> */}
     </ul>
   );
 
