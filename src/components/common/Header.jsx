@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 
@@ -34,21 +34,6 @@ function Header() {
       </div>
     </ul>
   );
-
-  const [theme, setTheme] = useState('dark'); // Example state
-
-  // Effect to update CSS variables dynamically
-  useEffect(() => {
-    if (theme === 'light') {
-      document.documentElement.style.setProperty('--back', '#222');
-      document.documentElement.style.setProperty('--front', '#dcd');
-      document.documentElement.style.setProperty('--middle', '#026d6d');
-    } else if (theme === 'dark') {
-      document.documentElement.style.setProperty('--back', '#f8f8f8');
-      document.documentElement.style.setProperty('--front', '#292828');
-      document.documentElement.style.setProperty('--middle', '#07dada');
-    }
-  }, [theme]);
 
   return (
     <div className="w-full h-[10vh] flex justify-center items-center">
@@ -92,12 +77,6 @@ function Header() {
         </div>
         <div className="navbar-end">
           <div className="flex items-center justify-between">
-            <input
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              type="checkbox"
-              className="toggle toggle-md rotate-180"
-              defaultChecked
-            />
             {!user ? (
               <div
                 className={`${

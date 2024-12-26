@@ -1,8 +1,14 @@
-
+import Faq from '../pageComp/Home/Faq';
+import Hero from '../pageComp/Home/Hero';
+import Review from '../pageComp/Home/Review';
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <Hero />
+      <Review />
+      <Faq />
+    </>
+  );
 }
 
-export default Home
+export default Home;

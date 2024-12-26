@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DataContext } from '../contexts/DataContext';
 import { useParams } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
@@ -12,10 +12,17 @@ function SingleArt() {
   // Find the artifact by ID
   const artifact = data.find((item) => item._id === id); // Use strict equality (===)
 
-  // console.log('data', data, 'id', id, 'art', artifact);
+  // State to manage the like button
+  const [isLiked, setIsLiked] = useState(false);
 
   // Handle the "Like" functionality
   const handleLike = (artifact) => {
+    // Ensure the user is logged in before allowing them to like
+    if (!user) {
+      toast.error('Please log in to like this artifact');
+      return;
+    }
+
     // Prepare the updated artifact data
     const likedData = {
       ...artifact,
@@ -25,26 +32,24 @@ function SingleArt() {
       likedByEmail: user.email,
     };
     delete likedData._id;
-    console.log(likedData);
 
     // Send the updated data to the server
-    // fetch(`http://localhost:4000/likedArtifacts`, {
-    //   method: 'POST', // Use PUT to update the artifact
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(likedData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setMongoData((prevData) =>
-    //       prevData.map((item) => (item._id === artifact._id ? data : item)),
-    //     );
-    //     toast.success('Artifact liked successfully');
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.message);
-    //   });
+    fetch(`http://localhost:4000/likedArtifacts`, {
+      method: 'POST', // Use POST to save the liked artifact
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(likedData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMongoData(data);
+        toast.success('Artifact liked successfully');
+        setIsLiked(true); // Disable the button and change the text
+      })
+      .catch((error) => {
+        toast.error('An error occurred while liking the artifact');
+      });
   };
 
   // Loading state
@@ -99,9 +104,10 @@ function SingleArt() {
           <div className="card-actions justify-center">
             <button
               onClick={() => handleLike(artifact)}
-              className="btn btn-success mid px-8 text-md mt-6 lg:text-lg"
+              className={`btn ${isLiked ? 'btn-disabled' : 'btn-success'} mid px-8 text-md mt-6 lg:text-lg`}
+              disabled={isLiked} // Disable the button after liking
             >
-              Like Artifact
+              {isLiked ? 'Liked' : 'Like Artifact'}
             </button>
           </div>
           <p className="text-center mt-4">

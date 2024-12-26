@@ -11,6 +11,7 @@ import MyAdded from '../pages/MyAdded';
 import PrivateRoutes from '../secureRoutes/PrivateRoutes';
 import PublicRoutes from '../secureRoutes/PublicRoutes';
 import AddArt from '../pages/AddArt';
+import UpdateArt from '../pages/UpdateArt';
 
 const Router = createBrowserRouter([
   {
@@ -35,6 +36,16 @@ const Router = createBrowserRouter([
             <SingleArt />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: '/update/:id', // Use :id instead of :url
+        element: (
+          <PrivateRoutes>
+            <UpdateArt/>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/artifacts/${params.id}`),
       },
       {
         path: '/my-added-artifacts',
