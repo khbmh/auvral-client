@@ -107,10 +107,10 @@ function Header() {
                   <img
                     src={user.photoURL}
                     alt={user.displayName}
-                    className="w-10 rounded-xl"
+                    className="w-[50px] h-[50px] rounded-xl"
                   />
                   <div
-                    className={`absolute w-[300px] -ml-[60px] py-2 ${
+                    className={`absolute w-[300px] space-y-2 -ml-[60px] py-2 ${
                       isPhotoHovered ? 'flex-col' : 'hidden'
                     }`}
                   >
