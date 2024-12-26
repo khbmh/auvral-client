@@ -21,7 +21,7 @@ function DataContextProvider({ children }) {
   };
 
   useEffect(() => {
-    fetch('http://localhost:4000/artifacts')
+    fetch('https://auvral-server.vercel.app/artifacts')
       .then((response) => response.json())
       .then((data) => setData(data));
   }, [change]);

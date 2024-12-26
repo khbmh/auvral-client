@@ -10,7 +10,7 @@ function MyLoved() {
   // Fetch liked artifacts by user email
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:4000/likedArtifacts/email/${user.email}`)
+      fetch(`https://auvral-server.vercel.app/likedArtifacts/email/${user.email}`)
         .then((res) => res.json())
         .then((data) => setLikedArtifacts(data))
         .catch((error) =>
@@ -31,7 +31,7 @@ function MyLoved() {
       confirmButtonText: 'Yes, remove it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/likedArtifacts/${_id}`, {
+        fetch(`https://auvral-server.vercel.app/likedArtifacts/${_id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

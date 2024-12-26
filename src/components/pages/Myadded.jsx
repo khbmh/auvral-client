@@ -24,7 +24,7 @@ function MyAdded() {
         updateData(updatedData);
 
         // Send DELETE request to the server
-        fetch(`http://localhost:4000/artifacts/${_id}`, {
+        fetch(`https://auvral-server.vercel.app/artifacts/${_id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
