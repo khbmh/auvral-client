@@ -10,7 +10,9 @@ function MyLoved() {
   // Fetch liked artifacts by user email
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://auvral-server.vercel.app/likedArtifacts/email/${user.email}`)
+      fetch(
+        `https://auvral-server.vercel.app/likedArtifacts/email/${user.email}`,
+      )
         .then((res) => res.json())
         .then((data) => setLikedArtifacts(data))
         .catch((error) =>
@@ -75,8 +77,8 @@ function MyLoved() {
         </h1>
         <div className="w-full h-[50vh] flex flex-col items-center justify-around">
           <img
-            className="max-w-[300px] w-[50vw]"
-            src="https://cdni.iconscout.com/illustration/premium/thumb/boy-explaining-about-no-data-folder-illustration-download-in-svg-png-gif-file-formats--empty-state-results-pack-miscellaneous-illustrations-8881971.png"
+            className="max-w-[300px] w-[50vw] grayscale"
+            src="https://cdni.iconscout.com/illustration/premium/thumb/nothing-found-illustration-download-in-svg-png-gif-file-formats--empty-not-fount-search-limerror-pack-design-development-illustrations-2815869.png?f=webp"
             alt="no data"
           />
           <p>You have not liked any artifacts yet</p>
