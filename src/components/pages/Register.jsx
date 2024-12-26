@@ -43,6 +43,11 @@ function Register() {
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] pb-16">
+
+<h1 className="text-3xl lg:text-5xl text-center font-bold my-8">
+        Register for Auvral!
+      </h1>
+
       <div className="card mid w-full max-w-sm shrink-0 shadow-2xl">
         <form className="card-body" onSubmit={handleRegister}>
           <div className="form-control">
