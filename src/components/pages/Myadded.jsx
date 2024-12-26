@@ -50,7 +50,9 @@ function MyAdded() {
   };
 
   // Filter artifacts added by the logged-in user
-  const filteredData = data.filter((artifact) => artifact.uploader === user.email);
+  const filteredData = data.filter(
+    (artifact) => artifact.uploader === user.email,
+  );
 
   // If no artifacts are found
   if (!filteredData.length) {

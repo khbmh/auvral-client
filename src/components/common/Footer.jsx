@@ -81,3 +81,23 @@ function Footer() {
 }
 
 export default Footer;
+/*
+<p>
+            <strong>Type:</strong> {artifact.artifactType}
+          </p>
+          <p>
+            <strong>Historical Context:</strong> {artifact.historicalContext}
+          </p>
+          <p>
+            <strong>Created At:</strong> {artifact.createdAt}
+          </p>
+          <p>
+            <strong>Discovered At:</strong> {artifact.discoveredAt}
+          </p>
+          <p>
+            <strong>Discovered By:</strong> {artifact.discoveredBy}
+          </p>
+          <p>
+            <strong>Present Location:</strong> {artifact.presentLocation}
+          </p>
+*/

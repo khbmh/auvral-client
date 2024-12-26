@@ -9,8 +9,6 @@ function UpdateArt() {
   const { user } = useContext(AuthContext);
   const { handleIncrement, setMongoData } = useContext(DataContext);
 
- 
-
   // Handle form submission for updating the artifact
   const handleUpdateArtifact = (e) => {
     e.preventDefault();
@@ -29,7 +27,7 @@ function UpdateArt() {
     };
 
     // Send the updated data to the server
-    fetch(`http://localhost:4000/artifacts/${artifactData._id}`, {
+    fetch(`https://auvral-server.vercel.app/artifacts/${artifactData._id}`, {
       method: 'PUT', // Use PUT to update the artifact
       headers: {
         'Content-Type': 'application/json',
@@ -98,6 +96,7 @@ function UpdateArt() {
               <option>Weapons</option>
               <option>Documents</option>
               <option>Writings</option>
+              <option>Monuments</option>
               <option>Other</option>
             </select>
           </div>

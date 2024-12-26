@@ -26,9 +26,6 @@ function DataContextProvider({ children }) {
       .then((data) => setData(data));
   }, [change]);
 
-
-
-
   return (
     <DataContext.Provider
       value={{

@@ -45,7 +45,7 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/artifacts/${params.id}`),
+          fetch(`https://auvral-server.vercel.app/artifacts/${params.id}`),
       },
       {
         path: '/my-added-artifacts',

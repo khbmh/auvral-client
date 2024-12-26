@@ -25,7 +25,7 @@ function AddArt() {
     };
     console.log(formData);
 
-    fetch('http://localhost:4000/artifacts', {
+    fetch('https://auvral-server.vercel.app/artifacts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
