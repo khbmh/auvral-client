@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
-}
+} */
 
 html {
   scroll-behavior: smooth;

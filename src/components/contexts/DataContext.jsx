@@ -25,11 +25,9 @@ function DataContextProvider({ children }) {
       .then((response) => response.json())
       .then((data) => setData(data));
   }, [change]);
-  // useEffect(() => {
-  //   fetch('http://localhost:4000/visaApplications')
-  //     .then((response) => response.json())
-  //     .then((data) => setApplications(data));
-  // }, [change]);
+
+
+
 
   return (
     <DataContext.Provider
@@ -37,6 +35,7 @@ function DataContextProvider({ children }) {
         applications,
         updateApplications,
         data,
+        change,
         updateData,
         setMongoData,
         mongoData,

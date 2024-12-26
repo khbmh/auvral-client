@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
-// import { DataContext } from '../contexts/DataContext';
+import { DataContext } from '../contexts/DataContext';
 
 function AddArt() {
   const { user } = useContext(AuthContext);
-  // const { handleIncrement, setMongoData } = useContext(DataContext);
+  const { handleIncrement, setMongoData } = useContext(DataContext);
 
   const handleAddArtifact = (e) => {
     e.preventDefault();
@@ -34,10 +34,10 @@ function AddArt() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setMongoData(data);
+        setMongoData(data);
         console.log(data);
         toast.success('Artifact added successfully');
-        // handleIncrement();
+        handleIncrement();
         e.target.reset();
       })
       .catch((error) => {
@@ -93,6 +93,7 @@ function AddArt() {
               <option>Weapons</option>
               <option>Documents</option>
               <option>Writings</option>
+              <option>Monuments</option>
               <option>Other</option>
             </select>
           </div>

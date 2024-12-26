@@ -1,17 +1,23 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { DataContext } from '../contexts/DataContext';
 import { useParams } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
 
 function SingleArt() {
-  const { data, setMongoData } = useContext(DataContext);
+  const { data, setMongoData, change } = useContext(DataContext);
+  const [likedData, setLikedData] = useState([]); // State to store liked artifacts from the server
   const { user } = useContext(AuthContext);
   const { id } = useParams(); // Use 'id' instead of 'url'
-
   // Find the artifact by ID
   const artifact = data.find((item) => item._id === id); // Use strict equality (===)
+  useEffect(() => {
+    fetch(`http://localhost:4000/likedArtifacts/artId/${artifact._id}`)
+      .then((response) => response.json())
+      .then((data) => setLikedData(data));
+  }, [change]);
 
+  console.log(artifact._id, likedData.length, likedData);
   // State to manage the like button
   const [isLiked, setIsLiked] = useState(false);
 
@@ -104,14 +110,16 @@ function SingleArt() {
           <div className="card-actions justify-center">
             <button
               onClick={() => handleLike(artifact)}
-              className={`btn ${isLiked ? 'btn-disabled' : 'btn-success'} mid px-8 text-md mt-6 lg:text-lg`}
+              className={`btn ${
+                isLiked ? 'btn-disabled' : 'btn-success'
+              } mid px-8 text-md mt-6 lg:text-lg`}
               disabled={isLiked} // Disable the button after liking
             >
               {isLiked ? 'Liked' : 'Like Artifact'}
             </button>
           </div>
           <p className="text-center mt-4">
-            <strong>Like Count:</strong> {artifact.likeCount}
+            <strong>Like Count:</strong> {likedData.length}
           </p>
         </div>
         <Toaster />
