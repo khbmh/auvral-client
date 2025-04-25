@@ -111,7 +111,7 @@ function Register() {
           onClick={handleGoogleLogin}
           className="flex flex-col items-center justify-center mb-10 google w-fit mx-auto rounded-full"
         >
-          <button className="w-full flex items-center justify-center py-2 px-6 rounded-full">
+          <button className="w-full border border-green-400 flex items-center justify-center py-2 px-6 rounded-full">
             login with Google
             <p className="ml-2" aria-label="Google Sign-in">
               <FcGoogle />

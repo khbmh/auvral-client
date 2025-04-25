@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div>
-      <footer className="footer mid flex flex-col-reverse lg:flex-row-reverse justify-between border-t px-10 py-4">
+      <footer className="footer mid flex flex-col-reverse lg:flex-row-reverse justify-between border-t border-green-400 px-10 py-4">
         <aside className="grid-flow-col items-center">
           <p className="text-right">
             <span className="font-mono text-xl">Auvral</span>
@@ -54,7 +54,7 @@ function Footer() {
           </div>
         </nav>
       </footer>
-      <footer className="footer mid text-base-content p-10">
+      <footer className="footer mid p-10">
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>

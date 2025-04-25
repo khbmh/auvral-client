@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 // import { DataContext } from '../contexts/DataContext';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { DataContext } from '../contexts/DataContext';
 
 function AllArtifacts() {
-  const {data} = useContext(DataContext)
+  const { data } = useContext(DataContext);
   const [searchQuery, setSearchQuery] = useState('');
   // console.log(data);
   // Filter artifacts based on the search query
@@ -26,24 +26,21 @@ function AllArtifacts() {
         All Artifacts
       </h1>
       <div className="mb-8 flex items-center justify-between">
-        <label
-          htmlFor="search"
-          className="block text-lg font-medium"
-        >
+        <label htmlFor="search" className="block text-lg font-medium">
           Search Artifacts
         </label>
         <input
           id="search"
           type="text"
           placeholder="Search by artifact name"
-          className="input input-bordered w-1/2"
+          className="input text-black input-bordered w-1/2"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
         {filteredData.map((artifact) => (
-          <div key={artifact._id} className="card border shadow-xl">
+          <div key={artifact._id} className="card border border-green-400">
             <figure>
               <img
                 src={artifact.artifactImage}
@@ -52,15 +49,9 @@ function AllArtifacts() {
               />
             </figure>
             <div className="card-body">
-              <h2 className="text-2xl font-bold">{artifact.artifactName}</h2>
-              <p>
-                <strong>Type:</strong> {artifact.artifactType}
-              </p>
-              <p>
-                <strong>Created At:</strong> {artifact.createdAt}
-              </p>
-              <p>
-                <strong>Discovered At:</strong> {artifact.discoveredAt}
+              <h2 className="text-xl font-bold">{artifact.artifactName}</h2>
+              <p className="opacity-60">
+                {artifact.historicalContext.substring(0, 72)}...
               </p>
               <div className="card-actions justify-end">
                 <Link

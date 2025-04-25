@@ -16,12 +16,12 @@ function Newsletter() {
   };
 
   return (
-    <div className="bg-base-200 py-12">
+    <div className="py-12">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4">
           Subscribe to Our Newsletter
         </h2>
-        <p className="text-gray-600 mb-8">
+        <p className="opacity-60 mb-8">
           Stay updated with the latest discoveries, artifacts, and historical insights.
         </p>
         <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
@@ -31,7 +31,7 @@ function Newsletter() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="input input-bordered w-full sm:w-auto flex-grow"
+              className="input text-black input-bordered w-full sm:w-auto flex-grow"
               required
             />
             <button type="submit" className="btn btn-success">

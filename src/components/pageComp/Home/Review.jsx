@@ -51,7 +51,7 @@ function Review() {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-between flex-grow">
         {reviews.map((review) => (
-          <div key={review.name} className="mid p-4 rounded-lg">
+          <div key={review.name} className="mid border border-green-400 p-4 rounded-lg">
             <div className="flex items-center space-x-4">
               <img
                 src={review.img}

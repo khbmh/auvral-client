@@ -1,14 +1,16 @@
 import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
+import { MdOutlineWbSunny } from 'react-icons/md';
+import { IoMoonOutline } from 'react-icons/io5';
 
-function Header() {
+function Header({ isDark, setIsDark }) {
   const { user, logOut, userLoading } = useContext(AuthContext);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isPhotoHovered, setIsPhotoHovered] = useState(false);
   const menu = (
-    <ul className="flex flex-col lg:flex-row gap-3 lg:gap-6">
+    <ul className="flex flex-col lg:flex-row gap-3 font-bold lg:gap-8">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/all-artifacts">All artifacts</NavLink>
       <NavLink to="/add-artifacts">Add artifacts</NavLink>
@@ -37,7 +39,9 @@ function Header() {
 
   return (
     <div className="w-full h-[10vh] flex justify-center items-center">
-      <div className="navbar z-40 fixed mid h-[10vh]">
+      <div
+        className={`navbar z-40 fixed mid h-[10vh] backdrop-blur-xl`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -83,6 +87,14 @@ function Header() {
                   userLoading && 'invisible'
                 } navbar-end space-x-3 flex ml-2`}
               >
+                <div className="flex justify-center items-center">
+                  <p
+                    className="hover:cursor-pointer"
+                    onClick={() => setIsDark(!isDark)}
+                  >
+                    {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
+                  </p>
+                </div>
                 <Link to="/login" className="btn mid btn-success">
                   Login
                 </Link>
@@ -99,6 +111,14 @@ function Header() {
                   userLoading && 'invisible'
                 } items-center space-x-3 flex ml-2`}
               >
+                <div>
+                  <p
+                    className="hover:cursor-pointer"
+                    onClick={() => setIsDark(!isDark)}
+                  >
+                    {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
+                  </p>
+                </div>
                 <div
                   onMouseEnter={() => setIsPhotoHovered(true)} // when mouse enters, set isHovered to true
                   onMouseLeave={() => setIsPhotoHovered(false)} // when mouse leaves, set isHovered to false

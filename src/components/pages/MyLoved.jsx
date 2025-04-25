@@ -94,7 +94,7 @@ function MyLoved() {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
         {likedArtifacts.map((artifact) => (
-          <div key={artifact._id} className="card border shadow-xl">
+            <div key={artifact._id} className="card border border-green-400">
             <figure>
               <img
                 src={artifact.artifactImage}
