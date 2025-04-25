@@ -1,6 +1,6 @@
 # **Auvral - Historical Artifacts Tracker**
 
-![Auvral Web Application Screenshot](https://i.ibb.co.com/hxt9KSWY/auvral-web-app-sc.png)
+![Auvral Full Web Application Screenshot](https://i.ibb.co.com/hxt9KSWY/auvral-web-app-sc.png)
 
 ## **Live Site**
 
