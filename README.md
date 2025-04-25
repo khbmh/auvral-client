@@ -1,10 +1,11 @@
 # **Auvral - Historical Artifacts Tracker**
 
+![Auvral Web Application Screenshot](https://i.ibb.co.com/hxt9KSWY/auvral-web-app-sc.png)
+
 ## **Live Site**
 
 [Auvral Live Site](https://auvral.web.app)
-_or_
-[Auvral Live Site](https://auvral.surge.sh)
+
 
 ---
 
