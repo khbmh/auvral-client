@@ -90,4 +90,20 @@ Auvral is a web application designed to track and manage historical artifacts. U
   - Node.js
   - Express.js
   - MongoDB (for database)
-  - JWT (for authentication)
+
+  
+---
+
+## **Getting Started**
+
+### **Prerequisites**
+- Node.js (v16+)
+- MongoDB Atlas account
+- Firebase project
+
+### **Installation**
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   cd client && npm install
+   cd ../server && npm install
