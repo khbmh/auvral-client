@@ -105,5 +105,4 @@ Auvral is a web application designed to track and manage historical artifacts. U
 1. Clone the repository
 2. Install dependencies:
    ```bash
-   cd client && npm install
-   cd ../server && npm install
+   npm install
