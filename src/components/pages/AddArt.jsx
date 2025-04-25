@@ -55,35 +55,42 @@ function AddArt() {
         <div className="lg:grid lg:grid-cols-2 space-y-3 lg:space-y-0 gap-y-3 gap-x-6">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Artifact Image</span>
+              <span>Artifact Image</span>
             </label>
             <input
               type="text"
               placeholder="Enter image URL"
               name="artifactImage"
-              className="input input-bordered"
+              className={`input input-bordered ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              }`}
+              // className="input input-bordered"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Artifact Name</span>
+              <span>Artifact Name</span>
             </label>
             <input
               type="text"
               placeholder="Enter artifact name"
               name="artifactName"
-              className="input input-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Artifact Type</span>
+              <span>Artifact Type</span>
             </label>
             <select
               name="artifactType"
-              className="select select-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             >
               <option disabled selected>
@@ -99,60 +106,70 @@ function AddArt() {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Historical Context</span>
+              <span>Historical Context</span>
             </label>
             <textarea
               placeholder="Enter historical context"
               name="historicalContext"
-              className="textarea textarea-bordered"
+              className={`textarea ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } textarea-bordered`}
               required
             ></textarea>
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Created At</span>
+              <span>Created At</span>
             </label>
             <input
               type="text"
               placeholder="Enter creation date (e.g., 100 BC)"
               name="createdAt"
-              className="input input-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Discovered At</span>
+              <span>Discovered At</span>
             </label>
             <input
               type="text"
               placeholder="Enter discovery date (e.g., 1799)"
               name="discoveredAt"
-              className="input input-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Discovered By</span>
+              <span>Discovered By</span>
             </label>
             <input
               type="text"
               placeholder="Enter discoverer's name"
               name="discoveredBy"
-              className="input input-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Present Location</span>
+              <span>Present Location</span>
             </label>
             <input
               type="text"
               placeholder="Enter present location"
               name="presentLocation"
-              className="input input-bordered"
+              className={`input ${
+                isDark ? 'text-gray-100 bg-gray-950' : 'text-black bg-gray-100'
+              } input-bordered`}
               required
             />
           </div>

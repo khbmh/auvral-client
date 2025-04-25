@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { DataContext } from '../../contexts/DataContext';
 
 function Newsletter() {
+  const { isDark } = useContext(DataContext);
   const [email, setEmail] = useState('');
 
   // Handle form submission
   const handleSubscribe = (e) => {
     e.preventDefault();
-
-
 
     // Simulate a successful subscription
     toast.success('Thank you for subscribing to our newsletter!');
@@ -22,7 +22,8 @@ function Newsletter() {
           Subscribe to Our Newsletter
         </h2>
         <p className="opacity-60 mb-8">
-          Stay updated with the latest discoveries, artifacts, and historical insights.
+          Stay updated with the latest discoveries, artifacts, and historical
+          insights.
         </p>
         <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
           <div className="flex flex-col sm:flex-row gap-4">
@@ -31,7 +32,9 @@ function Newsletter() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="input text-black input-bordered w-full sm:w-auto flex-grow"
+              className={`input input-bordered w-full sm:w-auto flex-grow ${
+                isDark ? 'text-gray-100 border-green-300 bg-gray-950' : 'text-black border-green-600 bg-gray-100'
+              } input-bordered w-1/2`}
               required
             />
             <button type="submit" className="btn btn-success">

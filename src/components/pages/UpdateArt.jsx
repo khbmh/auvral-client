@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 function UpdateArt() {
   const artifactData = useLoaderData(); // Fetch the artifact data using React Router's loader
   const { user } = useContext(AuthContext);
-  const { handleIncrement, setMongoData } = useContext(DataContext);
+  const { handleIncrement, setMongoData, isDark } = useContext(DataContext);
 
   // Handle form submission for updating the artifact
   const handleUpdateArtifact = (e) => {
@@ -172,6 +172,8 @@ function UpdateArt() {
       </form>
       <Toaster />
     </div>
+
+
   );
 }
 
