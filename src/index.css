@@ -9,7 +9,7 @@
 html {
   scroll-behavior: smooth;
 }
-
+/* 
 .input,
 option, select, textarea {
   color: black;
@@ -32,4 +32,4 @@ option, select, textarea {
   position: absolute;
   left: 0;
   bottom: -20%;
-}
+} */

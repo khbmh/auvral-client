@@ -3,8 +3,10 @@ import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 import { MdOutlineWbSunny } from 'react-icons/md';
 import { IoMoonOutline } from 'react-icons/io5';
+import { DataContext } from '../contexts/DataContext';
 
-function Header({ isDark, setIsDark }) {
+function Header() {
+  const { isDark, handleDark } = useContext(DataContext);
   const { user, logOut, userLoading } = useContext(AuthContext);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -39,9 +41,7 @@ function Header({ isDark, setIsDark }) {
 
   return (
     <div className="w-full h-[10vh] flex justify-center items-center">
-      <div
-        className={`navbar z-40 fixed mid h-[10vh] backdrop-blur-xl`}
-      >
+      <div className={`navbar z-40 fixed mid h-[10vh] backdrop-blur-xl`}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -114,7 +114,7 @@ function Header({ isDark, setIsDark }) {
                 <div>
                   <p
                     className="hover:cursor-pointer"
-                    onClick={() => setIsDark(!isDark)}
+                    onClick={handleDark}
                   >
                     {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>

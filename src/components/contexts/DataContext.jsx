@@ -3,6 +3,23 @@ import { createContext, useEffect, useState } from 'react';
 export const DataContext = createContext();
 
 function DataContextProvider({ children }) {
+  const [isDark, setIsDark] = useState(() => {
+    // Check localStorage for saved preference
+    const savedMode = localStorage.getItem('isDark');
+    // If found, use it (convert from string to boolean)
+    // Otherwise default to true
+    return savedMode !== null ? JSON.parse(savedMode) : true;
+  });
+
+  const handleDark = () => {
+    setIsDark((prev) => {
+      const newMode = !prev;
+      // Save the new mode to localStorage
+      localStorage.setItem('isDark', JSON.stringify(newMode));
+      return newMode;
+    });
+  };
+
   const [mongoData, setMongoData] = useState(null);
   const [data, setData] = useState([]);
   const [applications, setApplications] = useState([]);
@@ -33,7 +50,10 @@ function DataContextProvider({ children }) {
         updateApplications,
         data,
         change,
+        isDark,
+        setIsDark,
         updateData,
+        handleDark,
         setMongoData,
         mongoData,
         setChange,

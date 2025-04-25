@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { DataContext } from '../contexts/DataContext';
 
 function AddArt() {
-  const { user } = useContext(AuthContext);
+  const { user, isDark } = useContext(AuthContext);
   const { handleIncrement, setMongoData } = useContext(DataContext);
 
   const handleAddArtifact = (e) => {
