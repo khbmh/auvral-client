@@ -23,9 +23,11 @@ function Header() {
       >
         <p className="cursor-pointer">My Profile</p>
         <ul
-          className={`lg:absolute w-[170px] ml-4 ${
+          className={`lg:absolute w-[145px] ml-1 ${
             isHovered ? 'lg:flex' : 'lg:hidden'
-          } flex-col py-2 space-y-3`}
+          } flex-col p-2 space-y-3 backdrop-blur-xl ${
+            isDark ? 'bg-black/50' : 'bg-white/30'
+          }`}
         >
           <NavLink className="w-fit" to="/my-loved-artifacts">
             My Loved Profile
@@ -40,8 +42,12 @@ function Header() {
   );
 
   return (
-    <div className="w-full h-[10vh] flex justify-center items-center">
-      <div className={`navbar z-40 fixed mid h-[10vh] backdrop-blur-xl`}>
+    <div className={`w-full h-[10vh] flex justify-center items-center`}>
+      <div
+        className={`navbar z-40 fixed mid h-[10vh] backdrop-blur-xl ${
+          isDark ? 'bg-black/30' : 'bg-white/30'
+        } `}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -112,10 +118,7 @@ function Header() {
                 } items-center space-x-3 flex ml-2`}
               >
                 <div>
-                  <p
-                    className="hover:cursor-pointer"
-                    onClick={handleDark}
-                  >
+                  <p className="hover:cursor-pointer" onClick={handleDark}>
                     {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>
                 </div>
