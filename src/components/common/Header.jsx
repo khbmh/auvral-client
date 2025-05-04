@@ -143,7 +143,7 @@ function Header() {
                     className="w-[50px] h-[50px] rounded-xl"
                   />
                   <div
-                    className={`absolute w-[300px] rounded-md ${
+                    className={`absolute max-w-[300px] rounded-md ${
                       !isDark ? 'bg-[#FAF7F7]' : 'bg-[#181717]'
                     } right-0 space-y-2 -ml-[60px] p-2 ${
                       isPhotoHovered ? 'flex-col' : 'hidden'

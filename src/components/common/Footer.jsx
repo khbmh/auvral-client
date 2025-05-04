@@ -76,6 +76,9 @@ function Footer() {
           <a className="link link-hover">Cookie policy</a>
         </nav>
       </footer>
+        <div className="text-center opacity-60 pb-6">
+          <a className="group" href="http://mahi-here.netlify.app">Made by <span className="group-hover:underline">Mahi</span></a>
+        </div>
     </div>
   );
 }
