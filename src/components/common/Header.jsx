@@ -25,11 +25,12 @@ function Header() {
         <ul
           className={`lg:absolute w-[145px] ml-1 ${
             isHovered ? 'lg:flex' : 'lg:hidden'
-          } flex-col p-2 space-y-3 backdrop-blur-xl ${
-            isDark ? 'bg-black/50' : 'bg-white/30'
-          }`}
+          } flex-col p-2 gap-4 backdrop-blur-xl `}
         >
-          <NavLink className="w-fit" to="/my-loved-artifacts">
+          <NavLink
+            className="w-fit block mb-2 lg:mb-0"
+            to="/my-loved-artifacts"
+          >
             My Loved Profile
           </NavLink>
 
@@ -68,7 +69,9 @@ function Header() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mid p-4 rounded-box z-[1] mt-6 w-52 shadow"
+              className={`menu menu-sm ${
+                !isDark ? 'bg-[#FAF7F7]' : 'bg-[#181717]'
+              } dropdown-content mid p-4 rounded-box z-[1] mt-6 w-52 shadow`}
             >
               {menu}
             </ul>
@@ -95,8 +98,10 @@ function Header() {
               >
                 <div className="flex justify-center items-center">
                   <p
-                    className="hover:cursor-pointer"
-                    onClick={() => setIsDark(!isDark)}
+                    className={`hover:cursor-pointer ${
+                      isDark ? 'rotate-90' : 'rotate-0'
+                    } transition-transform duration-300 ease-in-out`}
+                    onClick={() => handleDark()}
                   >
                     {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>
@@ -115,10 +120,15 @@ function Header() {
               <div
                 className={`${
                   userLoading && 'invisible'
-                } items-center space-x-3 flex ml-2`}
+                } items-center space-x-3 flex ml-4 mr-2`}
               >
                 <div>
-                  <p className="hover:cursor-pointer" onClick={handleDark}>
+                  <p
+                    className={`hover:cursor-pointer ${
+                      isDark ? 'rotate-90' : 'rotate-0'
+                    } transition-transform duration-300 ease-in-out`}
+                    onClick={() => handleDark()}
+                  >
                     {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>
                 </div>
@@ -133,14 +143,21 @@ function Header() {
                     className="w-[50px] h-[50px] rounded-xl"
                   />
                   <div
-                    className={`absolute w-[300px] space-y-2 -ml-[60px] py-2 ${
+                    className={`absolute w-[300px] rounded-md ${
+                      !isDark ? 'bg-[#FAF7F7]' : 'bg-[#181717]'
+                    } right-0 space-y-2 -ml-[60px] p-2 ${
                       isPhotoHovered ? 'flex-col' : 'hidden'
                     }`}
                   >
                     <p className="mx-2 font-semibold text-md lg:text-xl flex">
                       {user.displayName}
                     </p>
-                    <p onClick={logOut} className="btn mid">
+                    <p
+                      onClick={logOut}
+                      className={`self-center btn ${
+                        isDark ? 'mid' : 'bg-white text-black hover:bg-gray-200'
+                      }`}
+                    >
                       LogOut
                     </p>
                   </div>
