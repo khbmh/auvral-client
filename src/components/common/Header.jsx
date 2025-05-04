@@ -89,21 +89,21 @@ function Header() {
           <ul className="menu menu-horizontal px-1">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-end">
             {!user ? (
               <div
                 className={`${
                   userLoading && 'invisible'
-                } navbar-end space-x-3 flex ml-2`}
+                } navbar-end space-x-3 flex lg:ml-2`}
               >
                 <div className="flex justify-center items-center">
                   <p
                     className={`hover:cursor-pointer ${
-                      isDark ? 'rotate-90' : 'rotate-0'
+                      isDark ? 'rotate-0' : 'rotate-90'
                     } transition-transform duration-300 ease-in-out`}
                     onClick={() => handleDark()}
                   >
-                    {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
+                    {!isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>
                 </div>
                 <Link to="/login" className="btn mid btn-success">
@@ -125,11 +125,11 @@ function Header() {
                 <div>
                   <p
                     className={`hover:cursor-pointer ${
-                      isDark ? 'rotate-90' : 'rotate-0'
+                      isDark ? 'rotate-0' : 'rotate-90'
                     } transition-transform duration-300 ease-in-out`}
                     onClick={() => handleDark()}
                   >
-                    {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
+                    {!isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
                   </p>
                 </div>
                 <div
